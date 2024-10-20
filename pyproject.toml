@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "sync_dns-project"
+version = "0.1.0"
+description = ""
+authors = ["i-pichurov <deadbassein@gmail.com>"]
+readme = "README.md"
+packages = [
+  { include = "sync_dns" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.scripts]
+check_dns = "sync_dns.scripts.check_dns:main"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.1.1"
+dnspython = "^2.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
