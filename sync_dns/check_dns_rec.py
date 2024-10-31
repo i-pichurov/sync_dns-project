@@ -1,23 +1,6 @@
 import dns.resolver
 import socket
-
-
-def get_ns_servers(domain):
-
-    ns_servers = []
-
-    try:
-        answers = dns.resolver.resolve(domain, 'NS')
-        for rdata in answers:
-            ns_servers.append(str(rdata))
-
-    except dns.resolver.NoAnswer:
-        print(f'No NS servers found for {domain}')
-
-    except Exception as e:
-        print(f'An error occurred while getting NS servers: {e}')
-
-    return ns_servers
+from sync_dns.get_ns import get_ns_servers
 
 
 def query_dns_record(domain, record_type, record_name):
@@ -33,7 +16,7 @@ def query_dns_record(domain, record_type, record_name):
             answers = resolver.resolve(record_name, record_type)
 
             for rdata in answers:
-                print(f'Query result for {record_name}.{domain} on'
+                print(f'Query result for {record_name} on '
                       f'NS server {ns_server}: {rdata}')
             print("\n")
         except Exception as e:
