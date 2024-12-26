@@ -1,9 +1,9 @@
 # Required
 
-Git
-Python 3.9 или новее
-Homebrew 4.4.10 или новее
-Poetry: 1.8.3 или новее
+Git 
+Python 3.9 или новее 
+Homebrew 4.4.10 или новее 
+Poetry: 1.8.3 или новее 
     
 # Installing
 
