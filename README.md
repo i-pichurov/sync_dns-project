@@ -66,5 +66,9 @@ Poetry: 1.8.3 или новее
     ns2.mail.ru. mail.ru TXT v=spf1 redirect=_spf.mail.ru
     ns2.mail.ru. mail.ru TXT _globalsign-domain-verification=n57ZlrTnnCnyCw1NMLRcU6gFwa3ykYc-KMqjCOSAOP
 
+Для выхода из вирутального окружения используем команду:
+    
+    exit
+
 Почему нельзя просто установить скрипт в общую среду Python на устройстве? - Гипотетически можно, НО:  
 Виртуальное окружение в Python создаёт изолированную среду для проекта, что помогает избежать конфликтов между зависимостями и облегчает управление ими.
