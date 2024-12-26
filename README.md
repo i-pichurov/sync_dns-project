@@ -1,40 +1,67 @@
 # Required
 
-Python: 3.12.3\
-
-    python3 --version
-
-Pip: 24.0\ - ставится вместе с питоном
-
-    python3 -m pip --version
-
-Poetry: 1.8.3
-
-    poetry --version
+Git
+Python 3.9 или новее
+Homebrew 4.4.10 или новее
+Poetry: 1.8.3 или новее
     
-- ставится так: https://github.com/python-poetry/install.python-poetry.org
-- или так: https://python-poetry.org/docs/#installing-with-pipx
-  
-pipx (если в системе стоит Homebrev)
-ставится так:
-
-    brew install pipx
-    pipx ensurepath
-
 # Installing
 
-Copy the contents of the repository:
+Проверяем, установлен ли на устройстве Python3, командой:
     
     git clone git@github.com:i-pichurov/sync_dns-project.git
-    
-Install the package using the command in the Makefile:
-    
-    make package-install
-    or 
-    pipx install dist/*.whl (если в системе стоит Homebrev)
+Если нет - ставим через приложение Self Service.
 
-After installing the package use:
+Ставим Homebrew (это менеджер пакетов для macOS, который упрощает установку многих программ), с помощью команды:
 
-    check_dns 'domain' 'dns_record_type(UPPERCASE)' 'dns_record_name'
-    or
-    check_dns -h 
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+Проверяем наличие и версию командой:
+    
+    brew --version
+
+Ставим Poetry (это инструемент для управления зависимосятми, публикации и установки пакетов Python) с помощью команды:
+
+    brew install poetry
+Проверяем наличие и версию командой:
+
+    poetry --version
+
+Проверяем, установлен ли на устройстве Git, командой:
+    
+    git --version
+Если нет, ставим через homebrew командой:
+
+    brew install git
+Проверяем наличие и версию командой:
+    
+    git --version
+
+Клонируем скрипт из репозитория командой:
+
+    git clone git@github.com:i-pichurov/sync_dns-project.git
+
+Открываем директорию проекта:
+    
+    cd sync_dns-project
+
+Устанавливаем зависимости проекта с помощью poetry:
+    
+    poetry install
+
+Запускаем настроеннок виртуальное окружение:
+    
+    poetry shell
+
+Окружение готово для использования в нем нашего скрипта. Для получения справки об использовании скрипта используем команду:
+    
+    check_dns -h
+
+Пример применения скрипта и его результат:
+
+    check_dns mail.ru TXT mail.ru
+    #Result:
+    ns1.mail.ru. mail.ru TXT _globalsign-domain-verification=n57ZlrTnnCnyCw1NMLRcU6gFwa3ykYc-KMqjCOSAOP
+    ns1.mail.ru. mail.ru TXT v=spf1 redirect=_spf.mail.ru
+    
+    ns2.mail.ru. mail.ru TXT v=spf1 redirect=_spf.mail.ru
+    ns2.mail.ru. mail.ru TXT _globalsign-domain-verification=n57ZlrTnnCnyCw1NMLRcU6gFwa3ykYc-KMqjCOSAOP
