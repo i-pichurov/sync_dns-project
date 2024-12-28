@@ -55,13 +55,10 @@ Poetry: 1.8.3 или новее
 
 Пример применения скрипта и его результат:
 
-    check_dns mail.ru TXT mail.ru
+    check_dns mail.ru TXT _dmarc.mail.ru
     #Result:
-    ns1.mail.ru. mail.ru TXT _globalsign-domain-verification=n57ZlrTnnCnyCw1NMLRcU6gFwa3ykYc-KMqjCOSAOP
-    ns1.mail.ru. mail.ru TXT v=spf1 redirect=_spf.mail.ru
-    
-    ns2.mail.ru. mail.ru TXT v=spf1 redirect=_spf.mail.ru
-    ns2.mail.ru. mail.ru TXT _globalsign-domain-verification=n57ZlrTnnCnyCw1NMLRcU6gFwa3ykYc-KMqjCOSAOP
+    ns1.mail.ru. _dmarc.mail.ru TXT v=DMARC1;p=reject;rua=mailto:dmarc_rua@corp.mail" ".ru;
+    ns2.mail.ru. _dmarc.mail.ru TXT v=DMARC1;p=reject;rua=mailto:dmarc_rua@corp.mail" ".ru;
 
 Для выхода из вирутального окружения используем команду:
     
