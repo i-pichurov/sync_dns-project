@@ -3,8 +3,14 @@ import argparse
 
 def cli():
     parser = argparse.ArgumentParser(
-        description='Prints the value of a DNS'
-        'record on all NS servers of a domain.')
+        description='Prints the value of a DNS '
+        'record on all NS servers of a domain.'
+        'Example: check_dns mail.ru TXT mail.ru'
+        '#Result:'
+        'ns1.mail.ru. mail.ru TXT _globalsign-domain-verification=n57ZlrTnnCnyCw1NMLRcU6gFwa3ykYc-KMqjCOSAOP'
+        'ns1.mail.ru. mail.ru TXT v=spf1 redirect=_spf.mail.ru'
+        'ns2.mail.ru. mail.ru TXT v=spf1 redirect=_spf.mail.ru'
+        'ns2.mail.ru. mail.ru TXT _globalsign-domain-verification=n57ZlrTnnCnyCw1NMLRcU6gFwa3ykYc-KMqjCOSAOP')
     parser.add_argument(
         'domain', type=str,
         help='Input domain name')
